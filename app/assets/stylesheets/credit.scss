@@ -1,3 +1,209 @@
-// Place all the styles related to the credit controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.card__main {
+  height: 100vh;
+  width: calc(100vw - 280px);
+  position: absolute;
+  top:100px;
+  left: 300px;  
+  margin-top:16px;
+  margin-left: 80px;
+  padding-top: 35px;
+  width:700px;
+  .main__container {
+    background-color: white;
+    height: 100%;
+    width: 90%;
+    margin-left: 180px;
+    &__header {
+      background-color: white;
+      height: 100px;
+      font-size: 22px;
+      font-weight: bold;
+      margin: auto;
+      text-align: center;
+      line-height: 100px;
+      border-bottom: #f5f5f5 solid 1px;
+    }
+    &__form {
+      height: 30%;
+      width: 100%;
+      margin: auto;
+      &__card {
+        width: 340px;
+        font-weight: 550;
+        margin: 10px auto 0;
+        &__title {
+          font-weight: 550;
+          display: inline-block;
+        }
+        &__require {
+          background: #ea352d;
+          display: inline-block;
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          color: #fff;
+          font-size: 12px;
+          vertical-align: top;
+        }
+        &__number {
+          height: 48px;
+          width: 100%;
+          margin: 8px auto 0;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+        }
+        &__image {
+          margin-top: 10px;
+          &__icon {
+            display: inline-block;
+            height: 30px;
+            width: 40px;
+          }
+        }          
+      }
+      &__limit {
+        height: 120px;
+        width: 340px;
+        margin: 30px auto 0;
+        select {
+          display: inline-block;
+          -webkit-appearance: none;
+          position: relative;
+          height: 48px;
+          width: 100px;
+          margin: 8px 3px 3px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+          }
+        &__title {
+          font-weight: 550;
+          display: inline-block;
+        }
+        &__require {
+          font-weight: 550;
+          background: #ea352d;
+          display: inline-block;
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          color: #fff;
+          font-size: 12px;
+          vertical-align: top;
+        }
+        &__form{
+          display: flex;
+        &__month {
+          position: relative;
+          &::after {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border: 0px;
+            border-bottom: solid 2px #b4b3b3;
+            border-right: solid 2px #b4b3b3;
+            -ms-transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+            position: absolute;
+            top: 50%;
+            left: 85px;
+            margin-top: -3px;
+          }
+        }
+        &__year {
+          position: relative;
+          &::after {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border: 0px;
+            border-bottom: solid 2px #b4b3b3;
+            border-right: solid 2px #b4b3b3;
+            -ms-transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+            position: absolute;
+            top: 50%;
+            left: 85px;
+            margin-top: -3px;
+          }
+        }
+       }
+      }
+      &__security {
+        width: 340px;
+        font-weight: 550;
+        margin: 10px auto 0;
+        &__title {
+          font-weight: 550;
+          display: inline-block;
+        }
+        &__require {
+          background: #ea352d;
+          display: inline-block;
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          color: #fff;
+          font-size: 12px;
+          vertical-align: top;
+        }
+        &__number {
+          height: 48px;
+          width: 100%;
+          margin: 8px auto 0;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+        }
+       }
+       &__question {
+         width: 340px;
+         position: relative;
+         margin: 8px auto 0;
+        &__mark {
+          text-align: right;
+          color: #0099e8;
+          span{
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #0099e8;
+            color: #fff;
+            line-height: 14px;
+            font-size: 12px;
+            text-align: center;
+          }
+        }
+       }
+       &__btn {
+         margin-top: 20px;;
+         &__red {
+          background: #ea352d;
+          display: block;
+          height: 48px;
+          width :335px;
+          margin:0 auto 5px;
+          font-size:14px;
+          color:#fff;
+          text-decoration: none;
+          text-align: center;
+          line-height: 3.3;
+        }
+      }
+     }
+    }
+  }
+
