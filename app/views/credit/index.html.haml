@@ -1,0 +1,124 @@
+.wrapper
+  .header
+  .header-main
+    .header-main__search-bar1
+      .header-main__search-bar1__logo-button
+        = link_to image_tag("fmarket_logo_red.svg", class: 'header-main__search-bar1__logo-button__image'),root_path
+      .header-main__search-bar1__text
+        = form_tag searches_index_path, method: :get , class: 'header-main__search-bar1__text__form' do
+          = text_field_tag :search, '', placeholder: '何かお探しですか？'
+          = label_tag '', class: 'header-main__search-bar1__text__box' do
+            = icon('fas', 'search', class: 'header-main__search-bar1__text__box__image')
+            = submit_tag 'Search', class: 'header-main__search-bar1__text__box__hidden'
+    .header-main__search-bar2
+      .header-main__search-bar2__genre-search
+        .header-main__search-bar2__genre-search__category-search
+          %a.header-main__search-bar2__genre-search__category-search__category-image{:href => "/jp/category"}
+            %i.fas.fa-bars
+            %font{:size => "2"} カテゴリーから探す
+        .header-main__search-bar2__genre-search__brands-search
+          %a.header-main__search-bar2__genre-search__brands-search__brands-image{:href => "/jp/brands"}
+            %i.fas.fa-tag
+            %font{:size => "2"} ブランドから探す
+      - if user_signed_in?
+        %ul.header-main__search-bar2__auth-box
+          %li.header-main__search-bar2__auth-box__iine
+            %a.iine-image{:href => "/jp/iine"}
+              %i.far.fa-heart
+              %font{:size => "2"} いいね！一覧
+          %li.header-main__search-bar2__auth-box__notice
+            %a.notice-image{:href => "/jp/notice"}
+              %i.far.fa-bell
+              %font{:size => "2"} お知らせ
+          %li.header-main__search-bar2__auth-box__todo
+            %a.todo-image{:href => "/jp/"}
+              %i.fas.fa-check
+              %font{:size => "2"} やることリスト
+          %li.header-main__search-bar2__auth-box__mypage
+            = link_to mypage_path(current_user.id) ,class: "mypage-image" do
+              =icon('fas','smile')
+              %font{:size => "2"} マイページ
+      - else
+        .header-main__search-bar2__new
+          .header-main__search-bar2__new__singin
+            = link_to "新規会員登録", step1_signup_index_path, class: "header-main__search-bar2__new__signin__btn" 
+          .header-main__search-bar2__new__login
+            = link_to "ログイン", new_user_session_path, class: "header-main__search-bar2__new__login__btn"
+  .left-content
+  %menu.left-content__menu
+    %ul.left-content__list
+      %li
+      = link_to mypage_path(current_user.id), class: 'left-content__list-item' do
+        マイページ
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        お知らせ
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        やることリスト
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        いいね！一覧
+      %li
+      = link_to new_item_path, class: 'left-content__list-item' do
+        出品する
+      %li
+      = link_to sell_list_mypage_path(current_user.id), class: 'left-content__list-item' do
+        出品した商品 - 出品中
+      %li
+      = link_to deal_mypage_path(current_user.id), class: 'left-content__list-item' do
+        出品した商品 - 取引中
+      %li
+      = link_to sold_mypage_path(current_user.id), class: 'left-content__list-item' do
+        出品した商品 - 売却済み
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        購入した商品 - 取引中
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        購入した商品 - 過去の取引
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        ニュース一覧
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        評価一覧
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        ガイド
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        お問い合わせ
+  %menu.left-content__middle
+    メルペイ
+    %ul.left-content__list
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        売上・振込申請
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        ポイント
+  %menu.left-content__under
+    設定
+    %ul.left-content__list
+      %li
+      = link_to user_profile_mypage_path(current_user.id), class: 'left-content__list-item' do
+        プロフィール
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        発送先・お届け先住所変更
+      %li
+      = link_to credit_card_mypage_path(current_user.id), class: 'left-content__list-item' do
+        支払い方法
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        メール/パスワード
+      %li
+      = link_to identification_mypage_path(current_user.id), class: 'left-content__list-item' do
+        本人情報
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        電話番号の確認
+      %li
+      = link_to logout_mypage_path(current_user.id), class: 'left-content__list-item' do
+        ログアウト

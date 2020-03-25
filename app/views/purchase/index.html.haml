@@ -1,0 +1,85 @@
+.confirmation
+  .confirmation__icon
+    = link_to image_tag("logo.png",size:"185x49",class:"confirmation__icon__1"),root_path
+  .confirmation__main
+    .confirmation__main__content
+      %h2.confirmation__main__top
+        購入内容の確認
+      %section.confirmation__main__item
+        .confirmation__main__item__image
+          = image_tag "https://pbs.twimg.com/media/ER60l56U4AAZ2Kf.jpg",size:"80x80"
+        .confirmation__main__item__content
+          %p.confirmation__main__item__content__text
+            = "ブルゾン"
+          .confirmation__main__item__content__price
+            .confirmation__main__item__content__price__money
+              = "¥" + "16,000"
+            .confirmation__main__item__content__price__tax
+              (税込み) 送料込み
+      %section.confirmation__main__payment
+        .confirmation__main__payment__price
+          .confirmation__main__payment__price__box
+            .confirmation__main__payment__price__box__text
+              支払い金額
+            .confirmation__main__payment__price__box__money
+              = "¥" + "16000"
+          .confirmation__main__payment__price__point
+            .confirmation__main__payment__price__point__box
+              .confirmation__main__payment__price__point__box__text
+                ■ ポイントを使用
+              .confirmation__main__payment__price__point__box__value
+                (所持ポイント:P0)
+        .confirmation__main__payment__credit
+          .confirmation__main__payment__credit__method
+            .confirmation__main__payment__credit__method__text
+              支払い方法
+            .confirmation__main__payment__credit__method__change
+              = link_to '変更する',"#"
+          .confirmation__main__payment__credit__info
+            .confirmation__main__payment__credit__info__name
+              クレジットカード
+            .confirmation__main__payment__credit__info__number
+              = "**** **** **** " + "1111"
+            .confirmation__main__payment__credit__info__monthyear
+              = "有効期限 11"+ " / " + "23"
+            = icon('fab','cc-jcb',class: 'confirmation__main__payment__credit__info__icon')
+        .confirmation__main__payment__address
+          .confirmation__main__payment__address__method
+            .confirmation__main__payment__address__method__text
+              配送先
+            .confirmation__main__payment__address__method__change
+              = link_to '変更する',"#"
+          .confirmation__main__payment__address__number
+            = "〒" + "111-1111"
+          .confirmation__main__payment__address__text
+            = "大阪府"
+            = "大阪市"
+            = "1040-1"
+            = "難波パークス"
+          .confirmation__main__payment__address__name
+            = "ピエロ"
+        .confirmation__main__bottom
+          .confirmation__main__bottom__caution
+            この商品はゆうゆうカリメル便を利用しているため、アプリからのみ購入できます。
+          .confirmation__main__bottom__buy
+            = link_to "#",method: :POST, class: 'buy__modal--btn',id: "buy__modal--btn" do
+              %p 購入する
+          .confirmation__main__bottom__app
+            .confirmation__main__bottom__app__text
+              アプリをお持ちでない方はかよりインストールしてご利用いただけます。
+            .confirmation__main__bottom__app__icon
+              = image_tag("//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?2091621301",size:"135x40")
+              = image_tag("https://www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?2091621301",size:"135x40")
+  .confirmation__bottom
+    .confirmation__bottom__terms
+      .confirmation__bottom__terms__1
+        = link_to 'プライバシーポリシー','#'
+      .confirmation__bottom__terms__2
+        = link_to 'カリメル利用規約','#'
+      .confirmation__bottom__terms__3
+        = link_to '特定取引に関する表記'
+    .confirmation__bottom__icon
+      .confirmation__bottom__icon__1
+        = link_to image_tag("logo.png",size:"100x65",class:"confirmation__icon__1")
+        .confirmation__bottom__icon__1__text
+          © FURIMA.

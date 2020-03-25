@@ -1,0 +1,197 @@
+.wrapper
+  .header
+  .header-main
+    .header-main__search-bar1
+      .header-main__search-bar1__logo-button
+        = link_to "#"
+      .header-main__search-bar1__text
+        = form_tag "#" do
+          = text_field_tag :search, '', placeholder: '何かお探しですか？'
+          = label_tag '', class: 'header-main__search-bar1__text__box' do
+            = icon('fas', 'search', class: 'header-main__search-bar1__text__box__image')
+            = submit_tag 'Search', class: 'header-main__search-bar1__text__box__hidden'
+    .header-main__search-bar2
+      .header-main__search-bar2__genre-search
+        .header-main__search-bar2__genre-search__category-search
+          %a.header-main__search-bar2__genre-search__category-search__category-image{:href => "/jp/category"}
+            %i.fas.fa-bars
+            %font{:size => "2"} カテゴリーから探す
+        .header-main__search-bar2__genre-search__brands-search
+          %a.header-main__search-bar2__genre-search__brands-search__brands-image{:href => "/jp/brands"}
+            %i.fas.fa-tag
+            %font{:size => "2"} ブランドから探す
+      - if user_signed_in?
+        %ul.header-main__search-bar2__auth-box
+          %li.header-main__search-bar2__auth-box__iine
+            %a.iine-image{:href => "/jp/iine"}
+              %i.far.fa-heart
+              %font{:size => "2"} いいね！一覧
+          %li.header-main__search-bar2__auth-box__notice
+            %a.notice-image{:href => "/jp/notice"}
+              %i.far.fa-bell
+              %font{:size => "2"} お知らせ
+          %li.header-main__search-bar2__auth-box__todo
+            %a.todo-image{:href => "/jp/"}
+              %i.fas.fa-check
+              %font{:size => "2"} やることリスト
+          %li.header-main__search-bar2__auth-box__mypage
+            = link_to "#" do
+              =icon('fas','smile')
+              %font{:size => "2"} マイページ
+      - else
+        .header-main__search-bar2__new
+          .header-main__search-bar2__new__singin
+            = link_to "新規会員登録", step1_signup_index_path, class: "header-main__search-bar2__new__signin__btn" 
+          .header-main__search-bar2__new__login
+            = link_to "ログイン", new_user_session_path, class: "header-main__search-bar2__new__login__btn"
+  .left-content
+  %menu.left-content__menu
+    %ul.left-content__list
+      %li
+      = link_to "#" do
+        マイページ
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        お知らせ
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        やることリスト
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        いいね！一覧
+      %li
+      = link_to "#", class: 'left-content__list-item' do
+        出品する
+      %li
+      = link_to "#", class: 'left-content__list-item' do
+        出品した商品 - 出品中
+      %li
+      = link_to "#", class: 'left-content__list-item' do
+        出品した商品 - 取引中
+      %li
+      = link_to "#", class: 'left-content__list-item' do
+        出品した商品 - 売却済み
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        購入した商品 - 取引中
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        購入した商品 - 過去の取引
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        ニュース一覧
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        評価一覧
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        ガイド
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        お問い合わせ
+  %menu.left-content__middle
+    メルペイ
+    %ul.left-content__list
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        売上・振込申請
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        ポイント
+  %menu.left-content__under
+    設定
+    %ul.left-content__list
+      %li
+      = link_to "#", class: 'left-content__list-item' do
+        プロフィール
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        発送先・お届け先住所変更
+      %li
+      = link_to "#", class: 'left-content__list-item' do
+        支払い方法
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        メール/パスワード
+      %li
+      = link_to "#", class: 'left-content__list-item' do
+        本人情報
+      %li
+      = link_to '#', class: 'left-content__list-item' do
+        電話番号の確認
+      %li
+      = link_to "#", class: 'left-content__list-item' do
+        ログアウト
+  .card__main
+    = form_tag("#", method: :post, id: 'charge-form', name: 'inputForm', class: 'main__container') do
+      .main__container__header
+        クレジットカード情報入力
+      .main__container__form
+        .main__container__form__card
+          .main__container__form__card__title
+            カード番号
+          .main__container__form__card__require
+            必須
+          = text_field_tag "number", "", maxlength: "16",type: "text", id: 'card_number', placeholder:"半角数字のみ", class: "main__container__form__card__number"
+          .main__container__form__card__image
+            -# = image_tag("#", class: "main__container__form__card__image__icon")
+            -# = image_tag("#", class: "main__container__form__card__image__icon")
+            -# = image_tag("#", class: "main__container__form__card__image__icon")
+            -# = image_tag("#", class: "main__container__form__card__image__icon")
+            -# = image_tag("#", class: "main__container__form__card__image__icon")
+            -# = image_tag("#", class: "main__container__form__card__image__icon")
+            -# = image_tag("#", class: "main__container__form__card__image__icon")
+        .main__container__form__limit
+          .main__container__form__limit__title
+            有効期限
+          .main__container__form__limit__require
+            必須
+          .main__container__form__limit__form
+            .main__container__form__limit__month
+              %select#exp_month{name: "exp_month", type: "text"}
+                %option{value: ""} --
+                %option{value: "1"}01
+                %option{value: "2"}02
+                %option{value: "3"}03
+                %option{value: "4"}04
+                %option{value: "5"}05
+                %option{value: "6"}06
+                %option{value: "7"}07
+                %option{value: "8"}08
+                %option{value: "9"}09
+                %option{value: "10"}10
+                %option{value: "11"}11
+                %option{value: "12"}12
+              %span 月
+            .main__container__form__limit__year
+              %select#exp_year{name: "exp_year", type: "text"}
+                %option{value: ""} --
+                %option{value: "2019"}19
+                %option{value: "2020"}20
+                %option{value: "2021"}21
+                %option{value: "2022"}22
+                %option{value: "2023"}23
+                %option{value: "2024"}24
+                %option{value: "2025"}25
+                %option{value: "2026"}26
+                %option{value: "2027"}27
+                %option{value: "2028"}28
+                %option{value: "2029"}29
+              %span 年
+        .main__container__form__security
+          .main__container__form__security__title
+            セキュリティーコード
+          .main__container__form__security__require
+            必須
+          = text_field_tag "cvc", "", maxlength: "4",type: "text", id: "cvc", placeholder:"カードの背面4桁もしくは3桁の番号", class: "main__container__form__security__number"
+          #card_token
+        .main__container__form__question
+          .main__container__form__question__mark
+            %span ?
+            カードの裏面の番号とは？
+        .main__container__form__btn
+          = submit_tag "追加する" , id:"token_submit", class: "main__container__form__btn__red" 
+  
+  -# = render 'post/footer_image'
+  -# = render 'post/footer'
+  -# = render 'post/sell-camera'
