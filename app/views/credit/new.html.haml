@@ -122,8 +122,11 @@
       %li
       = link_to "#", class: 'left-content__list-item' do
         ログアウト
+
+
+
   .card__main
-    = form_tag("#", method: :post, id: 'charge-form', name: 'inputForm', class: 'main__container') do
+    = form_tag("", method: :post, id: 'charge-form', name: 'inputForm', class: 'main__container') do
       .main__container__header
         クレジットカード情報入力
       .main__container__form
@@ -190,7 +193,7 @@
             %span ?
             カードの裏面の番号とは？
         .main__container__form__btn
-          = submit_tag "追加する" , id:"token_submit", class: "main__container__form__btn__red" 
+          = submit_tag "追加する", id:"token_submit", class: "main__container__form__btn__red" 
   
   -# = render 'post/footer_image'
   -# = render 'post/footer'

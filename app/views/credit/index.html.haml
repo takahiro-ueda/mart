@@ -108,7 +108,7 @@
       = link_to '#', class: 'left-content__list-item' do
         発送先・お届け先住所変更
       %li
-      = link_to credit_card_mypage_path(current_user.id), class: 'left-content__list-item' do
+      = link_to credit_path(current_user.id), class: 'left-content__list-item' do
         支払い方法
       %li
       = link_to '#', class: 'left-content__list-item' do
@@ -122,3 +122,21 @@
       %li
       = link_to logout_mypage_path(current_user.id), class: 'left-content__list-item' do
         ログアウト
+
+
+.content
+  .content__header
+    支払い方法
+  .content__main
+    .content__main__text
+      クレジットカード一覧
+    .content__main__card
+      .content__main__card__content
+        =link_to new_card_path do
+          =icon('fa','credit-card')
+          クレジットカードを追加する
+    
+    .content__main__bottom
+      =link_to "#" do
+        支払い方法について
+      = icon('fa', 'angle-right',class:'icon')
