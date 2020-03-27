@@ -11,11 +11,7 @@ document.addEventListener(
           exp_month: document.getElementById('exp_month').value,
           exp_year: document.getElementById('exp_year').value
         }; //入力されたデータを取得します。
-        // Payjp.createToken(card, function(s, response) {
-        //   document.getElementById('result').innerText = 'Token = ' + response.id;
-        // });
 
-        console.log("OK 2回目");
         Payjp.createToken(card, function(status, response) {
           // document.getElementById('result').innerText = 'Token = ' + response.id;
           console.log(response);
