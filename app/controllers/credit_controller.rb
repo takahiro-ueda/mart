@@ -1,7 +1,7 @@
 class CreditController < ApplicationController
 
   require "payjp"
-  before_action :set_card
+  # before_action :set_card
 
   def new
     card = Credit.where(user_id: current_user.id)
@@ -19,7 +19,7 @@ class CreditController < ApplicationController
       ) # 直前のnewアクションで発行され、送られてくるトークンをここで顧客に紐付けて永久保存します。
       
       @card = Credit.new(user_id: current_user.id, customer_id: customer.id, number: customer.default_card)
-      
+    
       if @card.save
         redirect_to action: "show"
       else
@@ -45,11 +45,11 @@ class CreditController < ApplicationController
     end
   end
 
-  private
+  # private
 
-  def set_card
-    @card = Credit.where(user_id: current_user.id).first if Credit.where(user_id: current_user.id).present?
-  end
+  # def set_card
+  #   @card = Credit.where(user_id: current_user.id).first if Credit.where(user_id: current_user.id).present?
+  # end
   
 
 end
