@@ -126,7 +126,7 @@
 
 
   .card__main
-    = form_tag("", method: :post, id: 'charge-form', name: 'inputForm', class: 'main__container') do
+    = form_tag( credit_index_path,id: 'charge-form', name: 'inputForm', class: 'main__container') do
       .main__container__header
         クレジットカード情報入力
       .main__container__form
@@ -188,13 +188,48 @@
             必須
           = text_field_tag "cvc", "", maxlength: "4",type: "text", id: "cvc", placeholder:"カードの背面4桁もしくは3桁の番号", class: "main__container__form__security__number"
           #card_token
+          %button.ui.button.fill{:tabindex => "0"}
+            サンプルのカード番号を使う
         .main__container__form__question
           .main__container__form__question__mark
             %span ?
             カードの裏面の番号とは？
         .main__container__form__btn
-          = submit_tag "追加する", id:"token_submit", class: "main__container__form__btn__red" 
-  
-  -# = render 'post/footer_image'
-  -# = render 'post/footer'
-  -# = render 'post/sell-camera'
+          = submit_tag "追加する",  id:"token_submit", class: "main__container__form__btn__red" 
+
+
+
+
+-# :javascript
+-#   (function() {
+-#   var number = document.querySelector('input[name="number"]'),
+-#           cvc = document.querySelector('input[name="cvc"]'),
+-#           exp_month = document.querySelector('select[name="exp_month"]'),
+-#           exp_year = document.querySelector('select[name="exp_year"]')
+-#       ;
+         
+-#       document.querySelector('.fill').addEventListener('click', function(e) {
+-#         e.preventDefault();
+-#         number.value = '4242424242424242';
+-#         cvc.value = '123';
+-#         exp_month.value = '12';
+-#         exp_year.value = '2020';
+-#       });
+
+-#       document.querySelector('.submit').addEventListener('click', function(e) {
+-#         e.preventDefault();
+
+-#         Payjp.setPublicKey('pk_test_43e2e13c79bc27b1ce6ee5f3');
+
+-#         var card = {
+-#           number: number.value,
+-#           cvc: cvc.value,
+-#           exp_month: exp_month.value,
+-#           exp_year: exp_year.value
+-#         }
+
+-#         Payjp.createToken(card, function(s, response) {
+-#           document.getElementById('result').innerText = 'Token = ' + response.id;
+-#         });
+-#       });
+-#   })();

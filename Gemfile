@@ -68,3 +68,4 @@ gem 'payjp'
 gem 'dotenv'
 
 gem 'active_hash'
+gem 'jquery-rails'
