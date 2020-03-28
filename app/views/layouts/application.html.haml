@@ -4,6 +4,8 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Mart
     %script{src: "https://js.pay.jp/", type: "text/javascript"}
+    :javascript
+      Payjp.setPublicKey('pk_test_43e2e13c79bc27b1ce6ee5f3');
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'

@@ -5,15 +5,19 @@ document.addEventListener(
       var btn = document.getElementById("token_submit"); //IDがtoken_submitの場合に取得されます
       btn.addEventListener('click', function(e) { //ボタンが押されたときに作動します
         e.preventDefault(); //ボタンを一旦無効化します
+        var number = document.getElementById('card_number'),
+            cvc = document.getElementById('cvc'),
+            exp_month = document.getElementById('exp_month'),
+            exp_year = document.getElementById('exp_year')
+        ; //入力されたデータを取得します。
         var card = {
-          number: document.getElementById('card_number').value,
-          cvc: document.getElementById('cvc').value,
-          exp_month: document.getElementById('exp_month').value,
-          exp_year: document.getElementById('exp_year').value
-        }; //入力されたデータを取得します。
+          number: number.value,
+          cvc: cvc.value,
+          exp_month: exp_month.value,
+          exp_year: exp_year.value
+        }
 
         Payjp.createToken(card, function(status, response) {
-          // document.getElementById('result').innerText = 'Token = ' + response.id;
           console.log(response);
           if (status === 200) { //成功した場合
             $("#card_number").removeAttr("name");
@@ -23,6 +27,7 @@ document.addEventListener(
             $("#card_token").append(
               $('<input type="hidden" name="payjp_token">').val(response.id)
             ); //取得したトークンを送信できる状態にします
+            console.log(response.id);
             document.inputForm.submit();
             alert("登録が完了しました"); //確認用
           } else {
