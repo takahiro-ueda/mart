@@ -68,3 +68,6 @@ gem 'payjp'
 gem 'dotenv'
 
 gem 'active_hash'
+gem 'jquery-rails'
+gem 'jquery-turbolinks'
+gem 'pry-rails'

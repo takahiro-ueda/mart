@@ -1,40 +1,68 @@
 %h2 住所情報登録
-= form_for @address do |f|
-  = render "devise/shared/error_messages", resource: @address
-  .field
-    = f.label :name
-    %br/
-    = f.text_field :first_name
-    = f.text_field :last_name
-  .field
-    = f.label :name_kana
-    %br/
-    = f.text_field :first_name_kana
-    = f.text_field :last_name_kana
-  .field
-    = f.label :post_number
-    %br/
-    = f.text_field :post_number
-  .field
-    = f.label :prefecture_id
-    %br/
-    = f.collection_select :prefecture_id, Prefecture.all, :id, :name
-  .field
-    = f.label :city
-    %br/
-    = f.text_field :city
-  .field
-    = f.label :address
-    %br/
-    = f.text_field :address
-  .field
-    = f.label :building
-    %br/
-    = f.text_field :building, autocomplete: "email"
-  .field
-    = f.label :phone_number
-    %br/
-    = f.text_field :phone_number, autocomplete: "current-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+#address-page.account-page
+  .address-page__inner.clearfix.user-form
+    %h1.address-page__inner__head 送付先登録
+    = form_for(@address) do |f|
+      = render "devise/shared/error_messages", resource: @address
+      .address-page__inner__field
+        .address-page__inner__field__label
+          = f.label :姓名（漢字）
+        .address-page__inner__field__nonull
+          %p 必須
+        .address-page__inner__field__input
+          = f.text_field :family_name, class: "name"
+        .address-page__inner__field__input
+          = f.text_field :first＿name, class: "name"
+      .address-page__inner__field
+        .address-page__inner__field__label
+          = f.label :姓名（カナ）
+        .address-page__inner__field__nonull
+          %p 必須
+        .address-page__inner__field__input
+          = f.text_field :family_name_kana, class: "name"
+        .address-page__inner__field__input
+          = f.text_field :first_name_kana, class: "name"
+      .address-page__inner__field
+        .address-page__inner__field__label
+          = f.label :電話番号
+        .address-page__inner__field__null
+          %p 任意
+        .address-page__inner__field__input
+          = f.telephone_field	 :tel
+      .address-page__inner__field
+        .address-page__inner__field__label
+          = f.label :都道府県
+        .address-page__inner__field__nonull
+          %p 必須
+        .address-page__inner__field__input
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "",class: "prefecture"
+      .address-page__inner__field
+        .address-page__inner__field__label
+          = f.label :郵便番号
+        .address-page__inner__field__nonull
+          %p 必須
+        .address-page__inner__field__input
+          = f.number_field :zip_code
+      .address-page__inner__field
+        .address-page__inner__field__label
+          = f.label :市区町村
+        .address-page__inner__field__nonull
+          %p 必須
+        .address-page__inner__field__input
+          = f.text_field :municipality
+      .address-page__inner__field
+        .address-page__inner__field__label
+          = f.label :番地
+        .address-page__inner__field__nonull
+          %p 必須
+        .address-page__inner__field__input
+          = f.text_field :address
+      .address-page__inner__field
+        .address-page__inner__field__label
+          = f.label :建物名
+        .address-page__inner__field__null
+          %p 任意
+        .address-page__inner__field__input
+          = f.text_field :building_name
+      .actions
+        = f.submit "登録", class: 'btn'
